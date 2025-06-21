@@ -34,3 +34,14 @@ void printOdd()
         cv.notify_one();
     }
 }
+
+int main()
+{
+    std::thread evenThread(printEven);
+    std::thread oddThread(printOdd);
+
+    evenThread.join();
+    oddThread.join();
+
+    return 0;
+}
